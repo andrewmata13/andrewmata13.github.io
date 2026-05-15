@@ -1,12 +1,11 @@
 ---
-const currentPath = Astro.url.pathname;
-
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/projects/", label: "Projects" },
-  { href: "/publications/", label: "Publications" },
-  { href: "/cv/", label: "CV" },
-  { href: "/contact/", label: "Contact" },
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#publications", label: "Publications" },
+  { href: "#experience", label: "Experience" },
+  { href: "#teaching", label: "Teaching" },
+  { href: "#education", label: "Education" },
 ];
 ---
 
@@ -21,9 +20,7 @@ const links = [
     <ul class="nav-links">
       {links.map(({ href, label }) => (
         <li>
-          <a href={href} class:list={[{ active: currentPath === href }]}>
-            {label}
-          </a>
+          <a href={href}>{label}</a>
         </li>
       ))}
     </ul>
@@ -37,6 +34,9 @@ const links = [
     const expanded = toggle.getAttribute("aria-expanded") === "true";
     toggle.setAttribute("aria-expanded", String(!expanded));
     navLinks?.classList.toggle("open");
+  });
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => navLinks?.classList.remove("open"));
   });
 </script>
 
@@ -81,8 +81,7 @@ const links = [
     transition: all 0.2s;
   }
 
-  .nav-links a:hover,
-  .nav-links a.active {
+  .nav-links a:hover {
     color: var(--color-accent);
     border-bottom-color: var(--color-accent);
   }

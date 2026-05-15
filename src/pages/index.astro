@@ -3,62 +3,258 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Andrew Mata — PhD Candidate">
-  <section class="hero section">
+  <section class="hero section" id="about">
     <div class="hero-content">
       <div class="hero-text">
-        <p class="hero-greeting">Hi, I'm</p>
         <h1>Andrew Mata</h1>
-        <p class="hero-role">PhD Candidate</p>
+        <p class="hero-role">PhD Candidate in Computer Science</p>
         <p class="hero-affiliation">
-          <!-- TODO: Replace with your department and university -->
-          Department of Computer Science, University Name
+          Stony Brook University
         </p>
         <p class="hero-bio">
-          <!-- TODO: Replace with your research summary -->
-          I am a PhD candidate researching [your research area]. My work focuses on
-          [brief description of your research interests and goals]. I am advised by
-          <a href="#">Prof. Advisor Name</a>.
+          I am a PhD candidate in the <a href="https://stanleybak.com/" target="_blank" rel="noopener">Reliable Systems Lab</a>
+          under the supervision of Dr. Stanley Bak. My research focuses on AI safety and
+          robustness of reinforcement learning agents and other learning-enabled systems. I develop
+          methods for adversarial evaluation, robustness certification, and systematic discovery
+          of failure modes in machine learning systems.
         </p>
-        <div class="hero-actions">
-          <a href="/projects/" class="btn btn-primary">View My Work</a>
-          <a href="/cv/" class="btn btn-outline">Curriculum Vitae</a>
+        <div class="hero-links">
+          <a href="mailto:andrew.c.mata@gmail.com">Email</a>
+          <a href="https://github.com/andrewmata13" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/andrew-mata-56697740a/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=q1qF0jwAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
         </div>
       </div>
       <div class="hero-photo">
-        <!-- TODO: Add your photo to public/images/headshot.jpg -->
-        <div class="photo-placeholder">Photo</div>
+        <img src="/images/headshot.JPG" alt="Andrew Mata" class="headshot" />
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Research Interests</h2>
-    <!-- TODO: Replace with your actual research interests -->
-    <ul class="interests-list">
-      <li>Research Interest One</li>
-      <li>Research Interest Two</li>
-      <li>Research Interest Three</li>
-      <li>Research Interest Four</li>
-    </ul>
+  <section class="section" id="projects">
+    <h2>Selected Projects</h2>
+
+    <div class="project">
+      <h3>Zero-One Attack: Adversarial Evaluation of RL Controllers <a href="https://github.com/andrewmata13/Zero-OneAttack" target="_blank" rel="noopener" class="pub-link">(code)</a></h3>
+      <p>
+        A framework for generating worst-case perturbations in both observation space and activation timing
+        to systematically evaluate the robustness of reinforcement learning agents. Designed state-time
+        perturbation attacks that degraded closed-loop neural controllers by 195% more than prior attacks
+        across 4 complex MuJoCo control benchmarks. Won Best Artifact Evaluation Package Award at ICCPS 2024.
+      </p>
+      <div class="project-gifs">
+        <figure>
+          <img src="/images/clean.gif" alt="Agent performing normally without attack" />
+          <figcaption>Clean</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/zero_one_attack.gif" alt="Agent degraded under Zero-One Attack" />
+          <figcaption>Zero-One Attack</figcaption>
+        </figure>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">MuJoCo</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Symbolic Gaussian Smoothing <a href="https://github.com/andrewmata13/Deterministic_Smoothing" target="_blank" rel="noopener" class="pub-link">(code)</a></h3>
+      <p>
+        A deterministic robustness certification method that replaces Monte Carlo randomized smoothing with
+        symbolic moment propagation, enabling analytical computation of output distribution statistics
+        in a single forward pass. Provides scalable robustness guarantees without stochastic sampling.
+      </p>
+      <div class="project-gifs">
+        <figure>
+          <img src="/images/noise_figure-1.png" alt="Symbolic Gaussian smoothing noise propagation" />
+          <figcaption>MNIST and F-MNIST</figcaption>
+        </figure>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Neural Network Verification</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>RS Certified Switcher <a href="https://github.com/andrewmata13/RL_Switcher" target="_blank" rel="noopener" class="pub-link">(code)</a></h3>
+      <p>
+        A runtime-certified binary switcher for adversarial robustness in reinforcement learning.
+        At each step, the system chooses between a high-performance PPO policy and a safe backup controller.
+        A binary switcher certified with symbolic smoothing detects adversarial observations and triggers
+        the backup, supporting repeated and multi-burst attacks while maintaining near-clean performance.
+      </p>
+      <div class="project-gifs">
+        <figure>
+          <img src="/images/cert_collapse-1.png" alt="Attack detection via certified switcher" />
+          <figcaption>Attack Detection</figcaption>
+        </figure>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Reinforcement Learning</span>
+        <span class="tag">MuJoCo</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Koopman Surrogate Falsification (FReaK) <a href="https://github.com/Abdu-Hekal/FReaK" target="_blank" rel="noopener" class="pub-link">(code)</a></h3>
+      <p>
+        A scalable framework for discovering failure cases in controllers using Koopman-based surrogate models
+        combined with reachability analysis and MILP encodings of Signal Temporal Logic specifications.
+        Outperformed competing tools in 16 of 19 benchmarks in the 2022 ARCH falsification competition.
+      </p>
+      <div class="project-tags">
+        <span class="tag">MATLAB</span>
+        <span class="tag">MILP Optimization</span>
+        <span class="tag">Reachability Analysis</span>
+      </div>
+    </div>
   </section>
 
-  <section class="section">
-    <h2>Recent News</h2>
-    <ul class="news-list">
-      <!-- TODO: Replace with your actual news items -->
+  <section class="section" id="publications">
+    <h2>Publications</h2>
+
+    <h3 class="pub-category">Journal Articles</h3>
+    <ol class="pub-list">
       <li>
-        <span class="news-date">May 2026</span>
-        <span>Paper accepted at Conference Name 2026</span>
+        Veena Krish, <strong class="me">Andrew Mata</strong>, Stanley Bak, and Amir Rahmati.
+        "Provable Observation Noise Robustness for Neural Network Control Systems."
+        <em>Research Directions: Cyber-Physical Systems</em>, vol. 1, 2024.
+        <a href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33C1C135187FF661586451DED1C2A19C/S2753851623000055a.pdf/div-class-title-provable-observation-noise-robustness-for-neural-network-control-systems-div.pdf" target="_blank" rel="noopener" class="pub-link">(pdf)</a>
+      </li>
+    </ol>
+
+    <h3 class="pub-category">Conference Articles</h3>
+    <ol class="pub-list" start="2">
+      <li>
+        Stanley Bak, Sergiy Bogomolov, Abdelrahman Hekal, Veena Krish, <strong class="me">Andrew Mata</strong>, Amir Rahmati.
+        "Zero-One Attack: Degrading Closed-Loop Neural Network Control Systems using State-Time Perturbations."
+        <em>ACM/IEEE International Conference on Cyber-Physical Systems (ICCPS)</em>, 2024.
+        <a href="https://amir.rahmati.com/dl/iccps24/ZeroOneAttack-ICCPS24.pdf" target="_blank" rel="noopener" class="pub-link">(pdf)</a>
+        <a href="https://stanleybak.com/papers/bak2024iccps_repeatability.pdf" target="_blank" rel="noopener" class="pub-link">(repeatability)</a>
+        <span class="award">Best Artifact Evaluation Package Award</span>
+        <a href="https://stanleybak.com/perm/iccps2024repeatability.jpg" target="_blank" rel="noopener" class="pub-link">(photo)</a>
       </li>
       <li>
-        <span class="news-date">Jan 2026</span>
-        <span>Started PhD candidacy</span>
+        Stanley Bak, Sergiy Bogomolov, Abdelrahman Hekal, Niklas Kochdumper, Ethan Lew, <strong class="me">Andrew Mata</strong>, Amir Rahmati.
+        "Falsification using Reachability of Surrogate Koopman Models."
+        <em>ACM International Conference on Hybrid Systems: Computation and Control (HSCC)</em>, 2024.
+        <a href="https://dl.acm.org/doi/pdf/10.1145/3641513.3650141" target="_blank" rel="noopener" class="pub-link">(pdf)</a>
       </li>
       <li>
-        <span class="news-date">Sep 2025</span>
-        <span>Presented poster at Workshop Name</span>
+        Stanley Bak, Abdelrahman Hekal, Niklas Kochdumper, Ethan Lew, <strong class="me">Andrew Mata</strong>, Amir Rahmati.
+        "Fast Koopman Surrogate Falsification Using Linear Relaxations and Weights."
+        <em>International Symposium on Automated Technology for Verification and Analysis (ATVA)</em>, 2024.
+        <a href="https://hal.science/hal-04962665v1/file/FastKoopman-ATVA24.pdf" target="_blank" rel="noopener" class="pub-link">(pdf)</a>
       </li>
-    </ul>
+      <li>
+        Ali Arjomandbigdeli, <strong class="me">Andrew Mata</strong>, and Stanley Bak.
+        "Verification of Neural Network Control Systems in Continuous Time."
+        <em>7th Symposium on AI Verification (SAIV)</em>, 2024.
+        <a href="https://arxiv.org/pdf/2406.00157" target="_blank" rel="noopener" class="pub-link">(pdf)</a>
+      </li>
+    </ol>
+
+    <h3 class="pub-category">Other</h3>
+    <ol class="pub-list" start="6">
+      <li>
+        <strong class="me">Andrew Mata</strong>, Ali Arjomandbigdeli, and Stanley Bak.
+        "Symbolic Gaussian Smoothing."
+        <em>ACM/IEEE 16th International Conference on Cyber-Physical Systems (ICCPS)</em>, 2025.
+        <a href="https://dl.acm.org/doi/pdf/10.1145/3716550.3725169" target="_blank" rel="noopener" class="pub-link">(pdf)</a>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section" id="experience">
+    <h2>Experience</h2>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <h3>Graduate Research Assistant</h3>
+        <span class="exp-date">2021 — Present</span>
+      </div>
+      <p class="exp-org">Stony Brook University, Reliable Systems Lab — advised by Prof. Stanley Bak</p>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <h3>Research Intern</h3>
+        <span class="exp-date">Summer 2024</span>
+      </div>
+      <p class="exp-org">Air Force Research Laboratory (AFRL), Autonomy Capability Team (ACT3)</p>
+      <p class="exp-desc">Designed adversarial stress-tests for RL-based autonomous controllers. Implemented Python attack workflows integrating Zero-One Attack with ACT3's training infrastructure.</p>
+    </div>
+
+  </section>
+
+  <section class="section" id="teaching">
+    <h2>Teaching</h2>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <h3>Robotics / AI Methods / Reinforcement Learning</h3>
+        <span class="exp-date">Summer 2022 — Present</span>
+      </div>
+      <p class="exp-org">Instructor at <a href="https://sigmacamp.org/" target="_blank" rel="noopener">Sigma Camp USA</a> and <a href="https://etapasigmacamp.com.br/" target="_blank" rel="noopener">Sigma Camp ETAPA Brazil</a></p>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <h3>Computer Science 101, 150, 201</h3>
+        <span class="exp-date">Fall 2022 — 2025</span>
+      </div>
+      <p class="exp-org">Instructor at <a href="https://schoolnova.org/" target="_blank" rel="noopener">School Nova</a> Enrichment Program</p>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <h3><a href="https://www.seclab.cs.sunysb.edu/sekar/cse150/" target="_blank" rel="noopener">CSE 150: Foundations of Computer Science — Honors</a></h3>
+        <span class="exp-date">Fall 2020</span>
+      </div>
+      <p class="exp-org">Teaching Assistant, with Dr. R. Sekar at Stony Brook University</p>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <h3><a href="https://www.cs.cornell.edu/courses/cs4860/2018fa/" target="_blank" rel="noopener">CS 4860: Applied Logic</a></h3>
+        <span class="exp-date">Fall 2018</span>
+      </div>
+      <p class="exp-org">Teaching Assistant, with Dr. Robert Constable at Cornell University</p>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <h2>Education</h2>
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <h3>Ph.D. in Computer Science</h3>
+        <span class="edu-date">2020 — 2026</span>
+      </div>
+      <p class="edu-org">Stony Brook University</p>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <h3>M.S. in Computer Science</h3>
+        <span class="edu-date">2020 — 2023</span>
+      </div>
+      <p class="edu-org">Stony Brook University</p>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <h3>B.A. in Computer Science and Math</h3>
+        <span class="edu-date">2016 — 2020</span>
+      </div>
+      <p class="edu-org">Cornell University</p>
+    </div>
   </section>
 </Layout>
 
@@ -71,12 +267,6 @@ import Layout from "../layouts/Layout.astro";
 
   .hero-text {
     flex: 1;
-  }
-
-  .hero-greeting {
-    color: var(--color-accent);
-    font-weight: 500;
-    margin-bottom: 0.25rem;
   }
 
   .hero-content h1 {
@@ -98,72 +288,151 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .hero-bio {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     max-width: 520px;
   }
 
-  .hero-actions {
+  .hero-links {
     display: flex;
-    gap: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.2rem;
+    font-size: 0.95rem;
   }
 
   .hero-photo {
     flex-shrink: 0;
   }
 
-  .photo-placeholder {
+  .headshot {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background: var(--color-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-muted);
-    font-size: 0.9rem;
+    object-fit: cover;
   }
 
-  .interests-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem 2rem;
-    list-style: none;
-  }
-
-  .interests-list li {
-    padding: 0.4rem 0;
-    padding-left: 1.2rem;
-    position: relative;
-  }
-
-  .interests-list li::before {
-    content: "\2022";
+  .pub-category {
     color: var(--color-accent);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-  }
-
-  .news-list {
-    list-style: none;
-  }
-
-  .news-list li {
-    display: flex;
-    gap: 1rem;
-    padding: 0.6rem 0;
+    font-size: 1.05rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.3rem;
     border-bottom: 1px solid var(--color-border);
   }
 
-  .news-list li:last-child {
+  .pub-category:first-of-type {
+    margin-top: 0.5rem;
+  }
+
+  .pub-list {
+    padding-left: 1.5rem;
+  }
+
+  .pub-list li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .pub-list em {
+    color: var(--color-text-muted);
+  }
+
+  .me {
+    color: var(--color-accent);
+  }
+
+  .award {
+    display: inline-block;
+    background: #fff3cd;
+    color: #856404;
+    padding: 0.1rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: 0.3rem;
+  }
+
+  .project {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project:last-child {
     border-bottom: none;
   }
 
-  .news-date {
-    font-weight: 600;
-    color: var(--color-accent);
+  .project h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .project p {
+    color: var(--color-text-muted);
+    font-size: 0.93rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-gifs {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-gifs figure {
+    text-align: center;
+  }
+
+  .project-gifs img {
+    max-width: 100%;
+    width: 600px;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+  }
+
+  .project-gifs figcaption {
     font-size: 0.85rem;
-    min-width: 5.5rem;
+    color: var(--color-text-muted);
+    margin-top: 0.4rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .exp-entry, .edu-entry {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .exp-entry:last-child, .edu-entry:last-child {
+    border-bottom: none;
+  }
+
+  .exp-header, .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .exp-date, .edu-date {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .exp-org, .edu-org {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    margin-top: 0.15rem;
+  }
+
+  .exp-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-top: 0.3rem;
   }
 
   @media (max-width: 640px) {
@@ -176,7 +445,7 @@ import Layout from "../layouts/Layout.astro";
       font-size: 2rem;
     }
 
-    .hero-actions {
+    .hero-links {
       justify-content: center;
     }
 
@@ -186,6 +455,10 @@ import Layout from "../layouts/Layout.astro";
 
     .interests-list {
       grid-template-columns: 1fr;
+    }
+
+    .exp-header, .edu-header {
+      flex-direction: column;
     }
   }
 </style>
