@@ -1,0 +1,191 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Andrew Mata — PhD Candidate">
+  <section class="hero section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-greeting">Hi, I'm</p>
+        <h1>Andrew Mata</h1>
+        <p class="hero-role">PhD Candidate</p>
+        <p class="hero-affiliation">
+          <!-- TODO: Replace with your department and university -->
+          Department of Computer Science, University Name
+        </p>
+        <p class="hero-bio">
+          <!-- TODO: Replace with your research summary -->
+          I am a PhD candidate researching [your research area]. My work focuses on
+          [brief description of your research interests and goals]. I am advised by
+          <a href="#">Prof. Advisor Name</a>.
+        </p>
+        <div class="hero-actions">
+          <a href="/projects/" class="btn btn-primary">View My Work</a>
+          <a href="/cv/" class="btn btn-outline">Curriculum Vitae</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <!-- TODO: Add your photo to public/images/headshot.jpg -->
+        <div class="photo-placeholder">Photo</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Research Interests</h2>
+    <!-- TODO: Replace with your actual research interests -->
+    <ul class="interests-list">
+      <li>Research Interest One</li>
+      <li>Research Interest Two</li>
+      <li>Research Interest Three</li>
+      <li>Research Interest Four</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Recent News</h2>
+    <ul class="news-list">
+      <!-- TODO: Replace with your actual news items -->
+      <li>
+        <span class="news-date">May 2026</span>
+        <span>Paper accepted at Conference Name 2026</span>
+      </li>
+      <li>
+        <span class="news-date">Jan 2026</span>
+        <span>Started PhD candidacy</span>
+      </li>
+      <li>
+        <span class="news-date">Sep 2025</span>
+        <span>Presented poster at Workshop Name</span>
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  .hero-content {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero-text {
+    flex: 1;
+  }
+
+  .hero-greeting {
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-role {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-bottom: 0.15rem;
+  }
+
+  .hero-affiliation {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-bio {
+    margin-bottom: 1.5rem;
+    max-width: 520px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .hero-photo {
+    flex-shrink: 0;
+  }
+
+  .photo-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .interests-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 2rem;
+    list-style: none;
+  }
+
+  .interests-list li {
+    padding: 0.4rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .interests-list li::before {
+    content: "\2022";
+    color: var(--color-accent);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  .news-list {
+    list-style: none;
+  }
+
+  .news-list li {
+    display: flex;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .news-list li:last-child {
+    border-bottom: none;
+  }
+
+  .news-date {
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+    min-width: 5.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .hero-content {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .hero-bio {
+      max-width: 100%;
+    }
+
+    .interests-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

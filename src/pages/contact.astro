@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contact — Andrew Mata">
+  <section class="section">
+    <h1>Contact</h1>
+    <p class="page-subtitle">
+      I'm always happy to discuss research, collaboration opportunities, or just chat.
+    </p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Email</h3>
+        <!-- TODO: Replace with your academic email -->
+        <a href="mailto:amata@university.edu">amata@university.edu</a>
+      </div>
+
+      <div class="contact-card">
+        <h3>Office</h3>
+        <!-- TODO: Replace with your actual office -->
+        <p>Room 123, Building Name<br />University Name</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Profiles</h3>
+        <ul>
+          <li><a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a></li>
+          <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .page-subtitle {
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .contact-card {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .contact-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .contact-card p,
+  .contact-card a {
+    font-size: 0.95rem;
+  }
+
+  .contact-card p {
+    color: var(--color-text-muted);
+  }
+
+  .contact-card ul {
+    list-style: none;
+  }
+
+  .contact-card li {
+    padding: 0.2rem 0;
+  }
+</style>

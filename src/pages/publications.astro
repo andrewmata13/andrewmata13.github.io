@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PublicationEntry from "../components/PublicationEntry.astro";
+
+// TODO: Replace with your actual publications
+const publications = [
+  {
+    title: "Your Paper Title: A Novel Approach to Something Important",
+    authors: "A. Mata, B. Collaborator, C. Advisor",
+    venue: "Proceedings of the International Conference on Example (ICE 2026)",
+    year: 2026,
+    link: "",
+    pdf: "",
+  },
+  {
+    title: "Another Paper Title About Your Research Area",
+    authors: "A. Mata, D. Coauthor",
+    venue: "Journal of Important Research, Vol. 42, No. 3",
+    year: 2025,
+    link: "",
+    pdf: "",
+  },
+  {
+    title: "An Earlier Paper on Foundational Work",
+    authors: "A. Mata, E. Mentor, F. Colleague",
+    venue: "Workshop on Emerging Topics (WET 2024)",
+    year: 2024,
+    link: "",
+    pdf: "",
+  },
+];
+---
+
+<Layout title="Publications — Andrew Mata">
+  <section class="section">
+    <h1>Publications</h1>
+    <p class="page-subtitle">
+      Peer-reviewed publications and preprints.
+    </p>
+    <div class="pub-list">
+      {publications.map((pub) => <PublicationEntry {...pub} />)}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .page-subtitle {
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+</style>
